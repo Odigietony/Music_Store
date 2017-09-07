@@ -1,0 +1,111 @@
+﻿@using MusicStore.Models;
+@model IEnumerable<MusicStore.Models.Artist>
+
+@{
+    ViewBag.Title = "Home Page";
+    IEnumerable<Artist> artist = ViewBag.listOfArtist;
+    IEnumerable<Songs> songs = ViewBag.ListOfSongs;
+    IEnumerable<Albums> albums = ViewBag.ListOfAlbums;
+}
+
+<section id="main" class="container">
+    <div class="jumbotron">
+        <span class="image featured"><img src="~/Content/images/Tony'sMusicStore.jpg" width="800" height="120" /></span><hr />
+        <p class="lead">A simple music repository of some popular songs, artists and albums, browse through and enjoy.Feedbacks and constructive critism are more than welcome.</p>
+       
+    </div>
+
+     
+        <h2>Artists</h2>
+        @foreach (var list in artist)
+        {
+
+            <div class="6u 12u(narrower) col-md-4">
+                <div class="">
+                    <section class="box special">
+                        <span class="image featured"><img src="~/Photos/@list.ArtistImage" width="350" height="220" /></span>
+                        <h3>@Html.DisplayFor(modelItem => list.ArtistName)</h3>
+                        <p>@Html.DisplayFor(modelItem => list.Description)</p>
+                    </section>
+                </div>           
+           </div>
+      
+        }
+
+    
+    <hr />
+
+    <div class="row">
+        <div class=" ">
+            <table class="table">
+               <thead>
+                   <tr>
+                       <th>
+                           <h2><a href="@Url.Action("Songs", "Home")" >Song List</a></h2>
+                       </th>
+                   </tr>
+               </thead>
+
+
+                @foreach (var item in songs)
+                {
+                    <tbody>
+                        <tr>
+                            <td>@item.SongName</td>
+                        </tr>  
+                    </tbody>
+                }  
+            </table>          
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="6u 12u(narrower)  ">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            <h2><a href="@Url.Action("Artists", "Home")">Artist List</a></h2>
+                        </th>
+
+
+                    </tr>
+                </thead>
+                @foreach (var item in artist)
+                {
+                    <tbody>
+                        <tr>
+                            <td>@item.ArtistName</td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="6u 12u(narrower)  ">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            <h2><a href="@Url.Action("Albums", "Home")">Album List</a></h2>
+                        </th>
+
+
+                    </tr>
+                </thead>
+                @foreach (var item in albums)
+                {
+                    <tbody>
+                        <tr>
+                            <td>@item.AlbumName</td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,37 @@
+﻿@using MusicStore.Models
+@model IEnumerable<MusicStore.Models.Artist>
+@{
+    ViewBag.Title = "Artists";
+    IEnumerable<Artist> artists = ViewBag.listOfArtists;
+}
+
+<section id="main" class="container">
+    <div class="jumbotron">
+        <h1> Tony's Music Store</h1>
+
+        <h2>@ViewBag.Title.</h2>
+    </div>
+    <table class="table">
+         
+            <tr>
+                <th><h3>Artists</h3></th>
+            </tr>
+        <tr>
+            <th><h3>@Html.DisplayNameFor(model => model.ArtistImage)</h3></th>
+        </tr>
+        
+        @foreach (var list in artists)
+        {
+            
+                <tr>
+                    <td><a href="@Url.Action("ArtistDetails", "Home", new { artistid=list.ArtistID })">@list.ArtistName</a></td>
+                </tr>
+                <tr>
+                    <td><a href="@Url.Action("ArtistDetails", "Home", new { artistid=list.ArtistID })"><img src="~/Photos/@list.ArtistImage" width="50" height="50" /></a></td>
+                </tr>
+
+
+        }
+    </table>
+</section>
+

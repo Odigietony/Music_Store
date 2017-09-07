@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MusicStore.Models.Reviews>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Albums.AlbumName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReviewerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReviewerEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Albums.AlbumName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReviewerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReviewerEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Content)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ReviewsID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ReviewsID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ReviewsID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,46 @@
+﻿@model MusicStore.Models.Songs
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Song Details</h2>
+
+<div>
+    <h4>Songs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Albums.AlbumName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Albums.AlbumName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SongName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SongName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+
+    </dl>
+</div>

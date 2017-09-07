@@ -1,0 +1,35 @@
+﻿@using MusicStore.Models;
+@{
+    ViewBag.Title = "Songs";
+    
+    IEnumerable<Songs> songs = ViewBag.songsList;
+
+}
+
+
+<section id="main" class="container">
+    <div class="jumbotron">
+        <h1> Tony's Music Store</h1>
+
+        <h2>@ViewBag.Title.</h2>
+    </div>
+    <table class="table">
+           <thead>
+               <tr>
+                   <th><h3>Song List</h3></th>
+                   
+                   <th></th>
+               </tr>
+           </thead>
+                    @foreach (var list in songs)
+                    {
+                        <tbody>
+                            <tr>
+                                <td><a href="@Url.Action("SongDetails", "Home", new { songid=list.SongsID })">@list.SongName</a></td>
+                                
+                            </tr>
+                        </tbody>
+
+                    }
+   </table>
+</section>
